@@ -1,12 +1,13 @@
-import { login } from "./login"
+import { login } from './login'
 
 describe('login', () => {
+  const mockAlert = jest.fn()
+  // @ts-ignore
+  window.alert = mockAlert
 
-    const mockAlert = jest.fn()
-    window.alert = mockAlert
-
-    it('Deve exibir um alert com boas vindas', () => {
-        login()
-        expect(mockAlert).toHaveBeenCalledWith('Bem vindo!')
-    })
+  it('deve exibir um alert com Bem vindo!', () => {
+    login()
+    expect(mockAlert).toHaveBeenCalledWith('Bem vindo!')
+  })
 })
+
